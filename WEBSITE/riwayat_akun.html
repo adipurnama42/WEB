@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang='id'>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Halaman Edit</title>
+  <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container" id="nav">
+        
+      </div>
+  </nav>
+  <div class="container">
+      <header class="header py-5">
+          <div class="row">
+            <div class="col-12 text-center">
+              <h1>Riwayat Akun</h1>
+            </div>
+          </div>
+      </header>
+        <div class="row mb-2">
+          <div class="col-md-3 mb-3">
+                <label for="country">Akun</label>
+                <select class="custom-select d-block w-100" id="" required>
+                  <option value="">Pilih</option>
+                  <option></option>
+                </select>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+          </div>
+          <div class="col-md-3 mb-3">
+                <label for="country">Dari</label>
+                <input type="date" data-bind="value:replyNumber" class="form-control" id="" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+          </div>
+          <div class="col-md-3 mb-3">
+                <label for="country">Sampai</label>
+                <input type="date" data-bind="value:replyNumber" class="form-control" id="" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+          </div>
+          <div class="col-md-3 mb-3">
+                <label for="country">Cari</label>
+                <form class="form-inline my-md-0">
+                  <input class="form-control" type="text" placeholder="Search" aria-label="Search" id="searchhistory">
+               </form>
+              </div>
+          </div>
+          <div class="col-md-12 mb-3">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Tanggal</th>
+                  <th scope="col">No. Jurnal</th>
+                  <th scope="col">Keterangan</th>
+                  <th scope="col">Debit</th>
+                  <th scope="col">Kredit</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Pengguna</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+              </tbody>
+            </table>
+          </  div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+        var rupiah = document.getElementById('rupiah');
+        rupiah.addEventListener('keyup', function(e){
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            rupiah.value = formatRupiah(this.value, 'Rp. ');
+        });
+ 
+        /* Fungsi formatRupiah */
+        function formatRupiah(angka, prefix){
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split           = number_string.split(','),
+            sisa            = split[0].length % 3,
+            rupiah          = split[0].substr(0, sisa),
+            ribuan          = split[0].substr(sisa).match(/\d{3}/gi);
+ 
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if(ribuan){
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+ 
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+        }
+    </script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<!--     <script src="../../asset/js/vendor/popper.min.js"></script> -->
+    <script src="asset/js/bootstrap.min.js"></script>
+    
+  <script src="js.js"></script>
+</body>
+</html> 

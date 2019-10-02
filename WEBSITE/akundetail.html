@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RTS</title>
+	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container" id="nav">
+        
+      </div>
+  </nav>
+<div class="container">
+     <header class="blog-header py-3">
+        <h1 align="center">Akun Detail</h1>
+    	<div class="nav-scroller py-3 mb-2">
+        	<nav class="nav d-flex justify-content-between">
+        		<div>
+	          		<a class="btn btn-success" href="tambahakundetail.html">Tambah</a>
+	          		<a class="btn btn-danger" href="#">Hapus</a>
+	          		<a class="btn btn-warning" href="editakundetail.html">Edit</a>
+          		</div>
+           		<form class="form-inline mt-2 mt-md-0">
+            		<input class="form-control mr-sm-2" type="text" placeholder="Search No Akun" aria-label="Search" id="myInput" onkeyup="myFunction()" autocomplete="off">
+          		</form>
+        	</nav>
+      	</div>
+    </header>
+    <table class="table table-striped table-sm">
+       	<thead>
+        	<tr>
+             	<th>No Akun</th>
+              <th>Pengguna</th>
+              <th>Header</th>
+              <th>Keterangan</th>
+           	</tr>
+      	</thead>
+        <tbody id="myTable">
+            <tr>
+	            <th>4789XS42</th>
+              <th>Bayu</th>
+              <th>Hai</th>
+              <th>Admin</th>
+          	</tr>
+          	<tr>
+	            <th>331JHDEQ</th>
+              <th>Desy</th>
+              <th>Halo</th>
+              <th>Customer</th>
+          	</tr>
+        </tbody>
+      </table>
+
+</div>
+
+
+
+
+<script>
+
+
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, th, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    th = tr[i].getElementsByTagName("th")[0];
+    if (th) {
+      txtValue = th.textContent || th.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<!--     <script src="../../asset/js/vendor/popper.min.js"></script> -->
+    <script src="asset/js/bootstrap.min.js"></script>
+    
+  <script src="js.js"></script>
+
+
+</body>
+</html>
